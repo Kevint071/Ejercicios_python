@@ -12,7 +12,7 @@ if num % 1 != 0:
 if num % 1 == 0:
     num = int(num)
             
-if num > 1000 and num <= 2000:
+if num > 1000 and num < 2000:
     num_2 = num - 1000
     if num_2 >= 500:
         print("El número se acerca más al 2000")
