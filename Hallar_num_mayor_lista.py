@@ -30,17 +30,3 @@ print(lista)
 
 print(f"El mayor número de la lista es: {lista_ordenada[-1]}")
 
-# intentando hacerlo con el ciclo for pero veo que no funciona
-
-# def hallar_num ():
-#     i = 0
-#     x = 0
-
-#     for i in range(len(lista)-1):
-#         print(lista[i])
-#         if lista[i] > lista[i + 1]:
-#             x = lista[i]
-#         if x > lista[i + 1]:
-#             x = x
-#     print(x)
-# hallar_num()

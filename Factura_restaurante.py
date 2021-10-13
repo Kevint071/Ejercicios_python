@@ -218,8 +218,6 @@ if float(total_a_pagar) % 1 == 0:
 if float(total_a_pagar) % 1 != 0:
     total_a_pagar = float(total_a_pagar)
 
-print(type(total_a_pagar))
-
 print(f"El total a pagar es de /S. {total_a_pagar}")
 while True:
     try:
@@ -314,3 +312,5 @@ print(igv_n.rjust(81, " "))
 total_a_pagar = total_a_pagar + 21.96
 total_a_pagar_n = (f"TOTAL A PAGAR $      S/.  {total_a_pagar:.2f}")
 print(total_a_pagar_n.rjust(82, " "))
+
+salida = input("Presione enter para salir")
