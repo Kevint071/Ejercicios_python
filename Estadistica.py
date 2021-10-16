@@ -15,8 +15,8 @@ if orden == 1:
     lista_abecedario = "a b c d e f g h i j k l m n ñ o p q r s t u v w x y z"
     lista_abecedario = lista_abecedario.split(" ")
     
-    tilde,no_tilde = 'áäéëíïóöúüÁÉËÍÏÓÖÚÜ','aaeeiioouuAEEIIOOUU'
-    conversion = str.maketrans(tilde,no_tilde)
+    tilde, no_tilde = 'áäéëíïóöúüÁÉËÍÏÓÖÚÜ','aaeeiioouuAEEIIOOUU'
+    conversion = str.maketrans(tilde, no_tilde)
 
     print()
     print("Lo que quiere hallar es una permutacion")
@@ -37,7 +37,7 @@ if orden == 1:
         lista_repeticion = []
         lista_letras = []
         
-        for i in range(0, len(abecedario)-1):
+        for i in range(0, len(abecedario)):
             veces = palabra.count(abecedario[i])
             
             if veces > 1 or veces == 1:
@@ -45,34 +45,33 @@ if orden == 1:
                 lista_letras.append(abecedario[i])
         print()
 
-        print(lista_repeticion)
-
-        if sum(lista_repeticion)/len(lista_repeticion) == 1:
+        if not(2 in lista_repeticion):
             print("No hay letras repetidas")
-            for i in range(0, len(lista_repeticion)):
-                print(f"La letra {lista_letras[i]} tiene {lista_repeticion[i]} repeticiones")
-                print()
+            print(f"La formula quedaría PR_{cantidad_letras}**1")
         
         if sum(lista_repeticion)/len(lista_repeticion) != 1:
 
-            for i in lista_repeticion[:]:
-                if i == 1:
-                    lista_repeticion.remove(i)
-
+            for i in range(len(lista_repeticion)-1, -1, -1):
+                if lista_repeticion[i] == 1:
+                    lista_repeticion.remove(lista_repeticion[i])
+                if palabra.count(lista_letras[i]) == 1:
+                    lista_letras.remove(lista_letras[i])
             for i in range(0, len(lista_repeticion)):
                 print(f"La letra {lista_letras[i]} tiene {lista_repeticion[i]} repeticiones")
-        
-        print(f"La formula quedaría PR_{cantidad_letras}**", end = "")
+
+            print()
+            print(f"La formula quedaría PR_{cantidad_letras}**", end = "")
+
+            for i in range(0, len(lista_repeticion)):
+                if i != len(lista_repeticion)-1:
+                    print(f"{lista_repeticion[i]}, ", end = "")
+                    
+                elif i == len(lista_repeticion)-1:
+                    print(f"{lista_repeticion[i]}", end = "")
 
         factorial_denominador = 1
 
         for i in range(0, len(lista_repeticion)):
-            if i != len(lista_repeticion)-1:
-                print(f"{lista_repeticion[i]}, ", end = "")
-
-            elif i == len(lista_repeticion)-1:
-                print(f"{lista_repeticion[i]}", end = "")
-
             factorial_denominador *= math.factorial(lista_repeticion[i])
         print()
 

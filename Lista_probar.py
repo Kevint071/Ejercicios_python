@@ -13,7 +13,7 @@ for i in range(len(values)):
         j += 1
 print(values)
 
-lista = [1, 2, 1, 2, 1, 1, 2, 2, 1]
+lista = [1, 2, 1, 2, 1, 2, 1]
 
 for i in range(len(lista) - 1, -1, -1):
     print(lista[i])
@@ -21,3 +21,12 @@ for i in range(len(lista) - 1, -1, -1):
         lista.remove(lista[i])
 
 print(lista)
+
+abecedario = ["s", "a", "d", "g", "t", "e", "r", "h"]
+
+x = []
+
+for i in range(0, len(abecedario)-1):
+    x.append(abecedario[i])
+print(x)
+
