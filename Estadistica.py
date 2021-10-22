@@ -7,85 +7,114 @@ titulo = titulo.center(76, f"{x}")
 print("                    ", titulo)
 print()
 
-orden = int(input("Digite si importa el orden si(1), no(2): "))
+while True:
+    try:
+        orden = int(input("Digite si importa el orden si(1), no(2): "))
 
-if orden == 1:
+        if orden == 1:
 
-    abecedario = "abcdefghijklmnñopqrstuvwxyz"
-    lista_abecedario = "a b c d e f g h i j k l m n ñ o p q r s t u v w x y z"
-    lista_abecedario = lista_abecedario.split(" ")
-    
-    tilde, no_tilde = 'áäéëíïóöúüÁÉËÍÏÓÖÚÜ','aaeeiioouuAEEIIOOUU'
-    conversion = str.maketrans(tilde, no_tilde)
+            while True:
+                try:
+                    utilizan = int(input("Digite si se utilizan todos los elementos si(1) no(2)"))
 
-    print()
-    print("Lo que quiere hallar es una permutacion")
-    print()
-    repeticion = int(input("Digite si hay repetición si(1), no(2): "))
+                    if utilizan == 1:
 
-    if orden == 1:
-        print()
-        print("La fórmula de la permutacion es: PR_n**a, b, c")
-        print()
-        palabra = input("Digite la palabra: ")
-        palabra = palabra.lower()
+                        abecedario = "abcdefghijklmnñopqrstuvwxyz"
+                        lista_abecedario = "a b c d e f g h i j k l m n ñ o p q r s t u v w x y z"
+                        lista_abecedario = lista_abecedario.split(" ")
+                        
+                        tilde, no_tilde = 'áäéëíïóöúüÁÉËÍÏÓÖÚÜ','aaeeiioouuAEEIIOOUU'
+                        conversion = str.maketrans(tilde, no_tilde)
 
-        palabra = palabra.translate(conversion)
+                        print()
+                        print("Lo que quiere hallar es una permutacion")
+                        print()
+                        repeticion = int(input("Digite si hay repetición si(1), no(2): "))
 
-        cantidad_letras = len(palabra)
+                        if repeticion == 1:
 
-        lista_repeticion = []
-        lista_letras = []
-        
-        for i in range(0, len(abecedario)):
-            veces = palabra.count(abecedario[i])
-            
-            if veces > 1 or veces == 1:
-                lista_repeticion.append(veces)
-                lista_letras.append(abecedario[i])
-        print()
+                            while True:
 
-        if not(2 in lista_repeticion):
-            print("No hay letras repetidas")
-            print(f"La formula quedaría PR_{cantidad_letras}**1")
-        
-        if sum(lista_repeticion)/len(lista_repeticion) != 1:
+                                try:
 
-            for i in range(len(lista_repeticion)-1, -1, -1):
-                if lista_repeticion[i] == 1:
-                    lista_repeticion.remove(lista_repeticion[i])
-                if palabra.count(lista_letras[i]) == 1:
-                    lista_letras.remove(lista_letras[i])
-            for i in range(0, len(lista_repeticion)):
-                print(f"La letra {lista_letras[i]} tiene {lista_repeticion[i]} repeticiones")
+                                    print()
+                                    print("La fórmula de la permutacion es: PR_n**a, b, c")
+                                    print()
+                                    palabra = input("Digite la palabra: ")
+                                    palabra = palabra.lower()
 
-            print()
-            print(f"La formula quedaría PR_{cantidad_letras}**", end = "")
+                                    palabra = palabra.translate(conversion)
 
-            for i in range(0, len(lista_repeticion)):
-                if i != len(lista_repeticion)-1:
-                    print(f"{lista_repeticion[i]}, ", end = "")
-                    
-                elif i == len(lista_repeticion)-1:
-                    print(f"{lista_repeticion[i]}", end = "")
+                                    cantidad_letras = len(palabra)
 
-        factorial_denominador = 1
+                                    lista_repeticion = []
+                                    lista_letras = []
+                                    
+                                    for i in range(0, len(abecedario)):
+                                        veces = palabra.count(abecedario[i])
+                                        
+                                        if veces > 1 or veces == 1:
+                                            lista_repeticion.append(veces)
+                                            lista_letras.append(abecedario[i])
+                                    print()
 
-        for i in range(0, len(lista_repeticion)):
-            factorial_denominador *= math.factorial(lista_repeticion[i])
-        print()
+                                    if not(2 in lista_repeticion):
+                                        print("No hay letras repetidas")
+                                        print(f"La formula quedaría PR_{cantidad_letras}**1")
+                                    
+                                    if sum(lista_repeticion)/len(lista_repeticion) != 1:
 
-        factorial_numerador = math.factorial(cantidad_letras)
+                                        for i in range(len(lista_repeticion)-1, -1, -1):
+                                            if lista_repeticion[i] == 1:
+                                                lista_repeticion.remove(lista_repeticion[i])
+                                            if palabra.count(lista_letras[i]) == 1:
+                                                lista_letras.remove(lista_letras[i])
+                                        for i in range(0, len(lista_repeticion)):
+                                            print(f"La letra {lista_letras[i]} tiene {lista_repeticion[i]} repeticiones")
 
-        resultado = factorial_numerador/factorial_denominador
+                                        print()
+                                        print(f"La formula quedaría PR_{cantidad_letras}**", end = "")
 
-        if resultado % 1 == 0:
-            resultado = int(resultado)
-        
-        if resultado % 1 != 0:
-            resultado = (f"{resultado:g}")
-            resultado = float(resultado)
-        print()
+                                        for i in range(0, len(lista_repeticion)):
+                                            if i != len(lista_repeticion)-1:
+                                                print(f"{lista_repeticion[i]}, ", end = "")
+                                                
+                                            elif i == len(lista_repeticion)-1:
+                                                print(f"{lista_repeticion[i]}", end = "")
 
-        print(f"El resultado de la permutacion es {resultado}")
+                                    factorial_denominador = 1
 
+                                    for i in range(0, len(lista_repeticion)):
+                                        factorial_denominador *= math.factorial(lista_repeticion[i])
+                                    print()
+
+                                    factorial_numerador = math.factorial(cantidad_letras)
+
+                                    resultado = factorial_numerador/factorial_denominador
+
+                                    if resultado % 1 == 0:
+                                        resultado = int(resultado)
+                                    
+                                    if resultado % 1 != 0:
+                                        resultado = (f"{resultado:g}")
+                                        resultado = float(resultado)
+
+                                    print(f"El resultado de la permutacion es {resultado}")
+                                
+                                    break
+                                except:
+                                    print("El valor no es válido")
+                        
+                        elif repeticion == 2:
+                            break
+                        else:
+                            print("El número no es válido")
+                except:
+                    print("El valor no es válido")
+
+        elif orden ==2:
+            break
+        else:
+            print("El número ingresado no es válido")
+    except:
+        print("El valor no es válido")
