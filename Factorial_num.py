@@ -14,4 +14,3 @@ while True:
             c = c * i
         print(f"El factorial de {num} es {c}")
         break
-    

@@ -1,8 +1,7 @@
 import math
 
 titulo = "Bienvenido al sistema de técnicas de conteo de estadística"
-x = "-"
-titulo = titulo.center(76, f"{x}")
+titulo = titulo.center(76, "-")
 
 print("                    ", titulo)
 print()
@@ -34,9 +33,7 @@ while True:
                         if repeticion == 1:
 
                             while True:
-
                                 try:
-
                                     print()
                                     print("La fórmula de la permutacion es: PR_n**a, b, c")
                                     print()
@@ -109,11 +106,26 @@ while True:
                             break
                         else:
                             print("El número no es válido")
+                        break
+                    elif utilizan == 2:
+                        break
+                    else:
+                        print("El número no es válido")
                 except:
                     print("El valor no es válido")
-
-        elif orden ==2:
             break
+        elif orden ==2:
+            print()
+            print("Lo que quiere hallar es una combinación")
+            print()
+            repo = int(input("Digite si la extracción se realiza con reposicion si(1), no(2): "))
+
+            if repo == 1:
+                print("La fórmula es C_n,k = n! / (n-k)!k!")
+                n = int(input("\nDigite el número de elementos que hay (n): "))
+                k = int(input("\nDigite la cantidad de elementos que se utilizan (k): "))
+                print(f"La fórmula quedaría C_{n},{k} = {n}! / ({n}-{k})!{k}!")
+
         else:
             print("El número ingresado no es válido")
     except:
