@@ -59,7 +59,7 @@ lista_codigo = []
 
 while True:
     while True:
-        codigo = input("Digite el codigo de lo que quiere comer: ")
+        codigo = input("\nDigite el codigo de lo que quiere comer: ")
         
         if codigo == "P001" or codigo == "p001":
             codigo1 = "P001"
@@ -197,7 +197,7 @@ while True:
     if otra_orden == "no":
         break
 
-name = input("Digite su nombre: ")
+name = input("\nDigite su nombre: ")
 name = name.upper()
 direccion = input("Digite su dirección: ")
 direccion = direccion.upper()
@@ -218,7 +218,7 @@ if float(total_a_pagar) % 1 == 0:
 if float(total_a_pagar) % 1 != 0:
     total_a_pagar = float(total_a_pagar)
 
-print(f"El total a pagar es de /S. {total_a_pagar}")
+print(f"\nEl total a pagar es de /S. {total_a_pagar}")
 while True:
     try:
         paga_usuario = float(input("Digite el valor con que va a pagar: "))

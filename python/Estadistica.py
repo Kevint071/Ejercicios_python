@@ -107,6 +107,7 @@ while True:
                         else:
                             print("El número no es válido")
                         break
+                    
                     elif utilizan == 2:
                         break
                     else:
