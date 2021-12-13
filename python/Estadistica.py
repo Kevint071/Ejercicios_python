@@ -131,6 +131,7 @@ while True:
                                             lista_factorial_elementos = list(map(lambda x: factorial(int(x)), lista_elementos_repetidos))
                                             lista_elementos_repetidos = list(map(lambda x: int(x), lista_elementos_repetidos))
                                             lista_elementos_repetidos = list(filter(lambda x: True if x > 1 else False, lista_elementos_repetidos))
+                                            lista_factorial_elementos = list(filter(lambda x: True if x > 1 else False, lista_factorial_elementos))
                                             
                                             if sum(lista_elementos_repetidos) > n:
                                                 print("No puede haber mas elementos repetidos que la cantidad total de elementos")
@@ -144,9 +145,15 @@ while True:
                                                 print(f"{lista_elementos_repetidos[i]}! x", end = " ")
                                             else:
                                                 print(f"{lista_elementos_repetidos[i]}!", end = "")
-                                                
+                                        
                                         factorial_numerador = factorial(n)
-                                        factorial_denominador = sum(lista_factorial_elementos)
+                                        
+                                        acum = 1
+                                        
+                                        for i in lista_factorial_elementos:
+                                            acum = acum * i
+                                        factorial_denominador = acum
+                                        
                                         resultado = factorial_numerador/factorial_denominador
                                         
                                         if resultado % 1 == 0:
@@ -253,6 +260,7 @@ while True:
                         print("Número no válido\n")
                 except:
                     print("Valor no válido\n")
+            break
         else:
             print("El número ingresado no es válido\n")
     except:
