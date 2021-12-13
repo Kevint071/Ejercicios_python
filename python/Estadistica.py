@@ -5,20 +5,24 @@ print("                    " + titulo.center(76, "-"))
 
 while True:
     try:
+        #Se pide si importa el orden de los elementos
         orden = int(input("Digite si importa el orden si(1), no(2): "))
-
+        
         if orden == 1:
 
             while True:
                 try:
+                    #Se pide si se utilizan todos los elementos
                     utilizan = int(input("Digite si se utilizan todos los elementos si(1) no(2): "))
 
                     if utilizan == 1:
-
+                        
+                        #
                         abecedario = "abcdefghijklmnñopqrstuvwxyz"
                         lista_abecedario = "a b c d e f g h i j k l m n ñ o p q r s t u v w x y z"
                         lista_abecedario = lista_abecedario.split(" ")
                         
+                        #Se usan después para quitar las tildes a la palabra que se va a digitar si el usuario desea digitar la palabra 
                         tilde, no_tilde = 'áäéëíïóöúüÁÉËÍÏÓÖÚÜ','aaeeiioouuAEEIIOOUU'
                         conversion = str.maketrans(tilde, no_tilde)
 
@@ -34,7 +38,8 @@ while True:
                                     if si_no == 1:
                                         palabra = input("Digite la palabra: ")
                                         palabra = palabra.lower()
-
+                                        
+                                        #Aquí ya se utiliza la conversión de la palabra quitando las tildes a la palabra digitada
                                         palabra = palabra.translate(conversion)
 
                                         cantidad_letras = len(palabra)
@@ -42,10 +47,11 @@ while True:
                                         lista_repeticion = []
                                         lista_letras = []
                                         
+                                        #Este ciclo sirve para añadir las veces que se repite una letra en la palabra digitada a la lista llamada lista_repeticion y además añade la letra que se repitió a una lista llamada lista_letras
                                         for i in range(0, len(abecedario)):
                                             veces = palabra.count(abecedario[i])
                                             
-                                            if veces > 1 or veces == 1:
+                                            if veces >= 2:
                                                 lista_repeticion.append(veces)
                                                 lista_letras.append(abecedario[i])
                                         print()
@@ -53,13 +59,7 @@ while True:
                                             print("No hay letras repetidas")
                                             print(f"La formula quedaría PR = {cantidad_letras}!")
                                         
-                                        if sum(lista_repeticion)/len(lista_repeticion) != 1:
-
-                                            for i in range(len(lista_repeticion)-1, -1, -1):
-                                                if lista_repeticion[i] == 1:
-                                                    lista_repeticion.remove(lista_repeticion[i])
-                                                if palabra.count(lista_letras[i]) == 1:
-                                                    lista_letras.remove(lista_letras[i])
+                                        elif sum(lista_repeticion)/len(lista_repeticion) != 1:
                                                     
                                             for i in range(0, len(lista_repeticion)):
                                                 print(f"La letra {lista_letras[i]} tiene {lista_repeticion[i]} repeticiones")
