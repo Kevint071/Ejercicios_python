@@ -7,6 +7,7 @@ conversion = str.maketrans(tilde, no_tilde)
 
 palabra = input("Digite la palabra: ")
 palabra = palabra.lower()
+
 #Aquí ya se utiliza la conversión de la palabra quitando las tildes a la palabra digitada
 palabra = palabra.translate(conversion)
 cantidad_letras = len(palabra)
