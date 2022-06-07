@@ -16,7 +16,7 @@ h1 span {
     width:0;
     background: tomato;
     border-left: 1px solid #000;
-    animation: escribir 9s steps(30);
+    animation: escribir 9s steps(70);
     
 }
 
